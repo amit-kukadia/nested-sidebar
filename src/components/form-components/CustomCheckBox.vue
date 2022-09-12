@@ -1,5 +1,6 @@
 <script setup>
 import { Switch, SwitchGroup, SwitchLabel } from '@headlessui/vue';
+
 defineProps({
   modelValue: Boolean,
   label: String,
@@ -9,7 +10,7 @@ defineEmits(['update:modelValue']);
 
 <template>
   <SwitchGroup>
-    <div class="flex items-center w-full">
+    <div class="flex items-center w-full hover:bg-gray-100">
       <SwitchLabel v-if="label" class="grow">{{ label }}</SwitchLabel>
       <Switch
         :value="String(modelValue)"

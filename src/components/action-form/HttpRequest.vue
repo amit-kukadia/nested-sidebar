@@ -4,11 +4,14 @@ import CustomInput from '../form-components/CustomInput.vue';
 import FormHeader from './FormHeader.vue';
 import { useActionsStore } from '../../stores/actions';
 import CustomSelect from '../form-components/CustomSelect.vue';
+
 defineEmits(['onSidebarChange']);
 const props = defineProps({
   selectedActionIndex: Number,
 });
+
 const actions = useActionsStore();
+
 if (!actions.selectedActions[props.selectedActionIndex].data) {
   actions.selectedActions[props.selectedActionIndex].data = {
     endPoint: '',
@@ -19,12 +22,10 @@ if (!actions.selectedActions[props.selectedActionIndex].data) {
 }
 
 const formData = actions.selectedActions[props.selectedActionIndex].data;
-const endPoint = ref('');
-
-const requestMethod = ref('Post');
 
 const options = ['Post', 'Put', 'Delete', 'Patch'];
 </script>
+
 <template>
   <FormHeader
     :selectedActionIndex="selectedActionIndex"

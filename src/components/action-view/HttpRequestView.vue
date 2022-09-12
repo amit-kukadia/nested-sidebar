@@ -3,6 +3,7 @@ defineProps({
   actionData: Object,
 });
 </script>
+
 <template>
   <div
     class="border-b p-6 font-semibold text-lg"

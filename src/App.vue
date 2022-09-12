@@ -1,6 +1,5 @@
 <script setup>
 import { shallowRef, ref } from 'vue';
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue';
 import ActionList from './components/ActionList.vue';
 import Sidebar from './components/Sidebar.vue';
 import AddAction from './components/AddAction.vue';
@@ -47,17 +46,25 @@ const onSidebarChange = (newSelectedSidebar, newSelectedActionIndex) => {
       />
     </Sidebar>
     <main
-      class="ml-[374px] p-[14px] bg-white rounded-[14px] flex flex-col gap-4 w-full"
+      class="ml-[374px] p-[14px] bg-white rounded-[14px] w-full"
+      :class="{
+        'flex items-center': !actions.selectedActions.length,
+      }"
     >
-      <div
-        v-for="action in actions.selectedActions"
-        class="border-2 rounded-xl"
-        :class="{ 'border-blue-500': !action.isInactive }"
-      >
-        <Component
-          :is="viewComponents[action.component]"
-          :actionData="action"
-        />
+      <div v-if="actions.selectedActions.length" class="flex flex-col gap-4">
+        <div
+          v-for="action in actions.selectedActions"
+          class="border-2 rounded-xl"
+          :class="{ 'border-blue-500': !action.isInactive }"
+        >
+          <Component
+            :is="viewComponents[action.component]"
+            :actionData="action"
+          />
+        </div>
+      </div>
+      <div v-else class="text-center font-bold text-2xl text-gray-300 w-full">
+        Your actions will appear here
       </div>
     </main>
   </div>

@@ -1,16 +1,20 @@
 <script setup>
 import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue';
 import { useActionsStore } from '../../stores/actions';
+
 const props = defineProps({
   selectedActionIndex: Number,
 });
 const emit = defineEmits(['onSidebarChange']);
+
 const actions = useActionsStore();
+
 const deleteAction = () => {
   actions.removeFromSelectedActions(props.selectedActionIndex);
   emit('onSidebarChange', 'ActionList');
 };
 </script>
+
 <template>
   <div class="flex border-b border-gray-400 px-6 py-3 gap-4 items-center">
     <button @click="$emit('onSidebarChange', 'ActionList')">
@@ -44,10 +48,10 @@ const deleteAction = () => {
               <MenuItem v-slot="{ active }">
                 <button
                   :class="[
-                    active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                    active ? 'bg-blue-700 text-white' : 'text-gray-900',
                     'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                   ]"
-                  @click="actions.toggleAcive(props.selectedActionIndex)"
+                  @click="actions.toggleActive(props.selectedActionIndex)"
                 >
                   Make
                   {{
@@ -61,7 +65,7 @@ const deleteAction = () => {
               <MenuItem v-slot="{ active }">
                 <button
                   :class="[
-                    active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                    active ? 'bg-blue-700 text-white' : 'text-gray-900',
                     'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                   ]"
                   @click="deleteAction"

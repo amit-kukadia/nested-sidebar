@@ -7,6 +7,7 @@ defineProps({
 });
 defineEmits(['update:modelValue']);
 </script>
+
 <template>
   <div class="relative inline-block">
     <font-awesome-icon

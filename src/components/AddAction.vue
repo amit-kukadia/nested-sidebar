@@ -46,6 +46,7 @@ const addToSelectedActions = () => {
   emit('onSidebarChange', 'ActionList');
 };
 </script>
+
 <template>
   <div class="flex flex-col justify-between h-screen">
     <div>
@@ -63,12 +64,20 @@ const addToSelectedActions = () => {
           prependIcon="fa-solid fa-magnifying-glass"
         />
         <div class="my-3 text-gray-400">Native popup actions</div>
-        <div v-for="action in filteredNativeActions" class="p-4">
+        <div
+          v-for="action in filteredNativeActions"
+          class="p-4 hover:bg-gray-100 flex items-center"
+        >
+          <font-awesome-icon :icon="action.icon" class="mr-4" />
           <CustomCheckBox v-model="action.isSelected" :label="action.name" />
         </div>
 
         <div class="my-3 text-gray-400">Integration with other apps</div>
-        <div v-for="action in filteredIntegrationActions" class="p-4">
+        <div
+          v-for="action in filteredIntegrationActions"
+          class="p-4 hover:bg-gray-100 flex items-center"
+        >
+          <font-awesome-icon :icon="action.icon" class="mr-4" />
           <CustomCheckBox v-model="action.isSelected" :label="action.name" />
         </div>
       </div>

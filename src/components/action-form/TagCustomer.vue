@@ -1,13 +1,14 @@
 <script setup>
-import { Menu, MenuButton, MenuItems, MenuItem } from '@headlessui/vue';
 import { ref } from 'vue';
 import { useActionsStore } from '../../stores/actions';
 import FormHeader from './FormHeader.vue';
 import CustomInput from '../form-components/CustomInput.vue';
+
 const props = defineProps({
   selectedActionIndex: Number,
 });
 const emit = defineEmits(['onSidebarChange']);
+
 const actions = useActionsStore();
 
 if (!actions.selectedActions[props.selectedActionIndex].data) {
@@ -22,6 +23,7 @@ const addTag = () => {
   newTagText.value = '';
 };
 </script>
+
 <template>
   <FormHeader
     :selectedActionIndex="selectedActionIndex"
