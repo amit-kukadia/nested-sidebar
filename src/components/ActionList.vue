@@ -7,7 +7,7 @@ defineEmits(['onSidebarChange']);
 
 <template>
   <div>
-    <div class="flex border-b border-gray-400 px-6 py-3 items-center">
+    <div class="flex border-b px-6 py-3 items-center">
       <font-awesome-icon
         icon="fa-solid fa-bolt"
         class="mr-4 text-yellow-400 h-5 w-5"

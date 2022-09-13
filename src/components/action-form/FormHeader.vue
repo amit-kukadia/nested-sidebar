@@ -16,7 +16,7 @@ const deleteAction = () => {
 </script>
 
 <template>
-  <div class="flex border-b border-gray-400 px-6 py-3 gap-4 items-center">
+  <div class="flex border-b px-6 py-3 gap-4 items-center">
     <button @click="$emit('onSidebarChange', 'ActionList')">
       <font-awesome-icon icon="fa-solid fa-chevron-left" />
     </button>

@@ -50,7 +50,7 @@ const addToSelectedActions = () => {
 <template>
   <div class="flex flex-col justify-between h-screen">
     <div>
-      <div class="flex border-b border-gray-400 px-6 py-3">
+      <div class="flex border-b px-6 py-3">
         <button @click="$emit('onSidebarChange', 'ActionList')">
           <font-awesome-icon icon="fa-solid fa-chevron-left" />
         </button>
