@@ -5,5 +5,11 @@ defineProps({
 </script>
 
 <template>
-  <div class="p-6">{{ actionData.name }} (not implemented)</div>
+  <h3
+    class="border-b p-6 font-semibold text-lg"
+    :class="{ 'text-gray-400': actionData.isInactive }"
+  >
+    <font-awesome-icon :icon="actionData.icon" class="mr-4" />
+    <span>{{ actionData.name }}</span>
+  </h3>
 </template>

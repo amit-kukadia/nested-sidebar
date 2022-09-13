@@ -52,7 +52,7 @@ const onSidebarChange = (newSelectedSidebar, newSelectedActionIndex) => {
       }"
     >
       <div v-if="actions.selectedActions.length" class="flex flex-col gap-4">
-        <div
+        <section
           v-for="action in actions.selectedActions"
           class="border-2 rounded-xl"
           :class="{ 'border-blue-500': !action.isInactive }"
@@ -61,7 +61,7 @@ const onSidebarChange = (newSelectedSidebar, newSelectedActionIndex) => {
             :is="viewComponents[action.component]"
             :actionData="action"
           />
-        </div>
+        </section>
       </div>
       <div v-else class="text-center font-bold text-2xl text-gray-300 w-full">
         Your actions will appear here

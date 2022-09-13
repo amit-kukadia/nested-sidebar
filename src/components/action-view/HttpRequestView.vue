@@ -5,12 +5,13 @@ defineProps({
 </script>
 
 <template>
-  <div
+  <h3
     class="border-b p-6 font-semibold text-lg"
     :class="{ 'text-gray-400': actionData.isInactive }"
   >
-    {{ actionData.name }}
-  </div>
+    <font-awesome-icon :icon="actionData.icon" class="mr-4" />
+    <span>{{ actionData.name }}</span>
+  </h3>
   <div v-if="!actionData.isInactive && actionData.data">
     <div class="border-b p-6">
       <div class="font-thin text-gray-400">Request endpoint</div>

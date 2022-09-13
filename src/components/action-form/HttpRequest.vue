@@ -48,31 +48,46 @@ const options = ['Post', 'Put', 'Delete', 'Patch'];
       />
     </div>
     <div>
-      <table>
+      <table
+        class="mt-4 rounded-xl border-collapse border-none shadow-[0_0_0_1px_#e5e7eb]"
+      >
         <thead>
-          <tr>
-            <th class="p-4">Key</th>
-            <th class="p-4">Value</th>
-            <th>
+          <tr class="text-left text-gray-400 text-lg">
+            <th class="p-4 font-thin">Key</th>
+            <th class="p-4 font-thin">Value</th>
+            <th class="text-center">
               <button
                 @click="formData.options.push({ key: '', value: '' })"
-                class="text-blue-700"
+                class="text-blue-700 p-3 rounded-xl hover:bg-gray-100"
               >
-                <font-awesome-icon icon="fa-solid fa-plus" />
+                <font-awesome-icon icon="fa-solid fa-plus" class="h-6 w-6" />
               </button>
             </th>
           </tr>
         </thead>
         <tbody>
           <tr
-            class="border"
+            class="border-t"
             v-for="(option, index) in formData.options"
             :key="index"
           >
-            <td><CustomInput v-model="option.key" class="w-32" /></td>
-            <td><CustomInput v-model="option.value" class="w-32" /></td>
-            <td class="p-4">
-              <button @click="formData.options.splice(index, 1)">
+            <td class="border-r">
+              <CustomInput
+                v-model="option.key"
+                class="w-32 border-none rounded-none"
+              />
+            </td>
+            <td class="border-r">
+              <CustomInput
+                v-model="option.value"
+                class="w-32 border-none rounded-none"
+              />
+            </td>
+            <td class="p-2">
+              <button
+                @click="formData.options.splice(index, 1)"
+                class="p-3 rounded-xl hover:bg-gray-100"
+              >
                 <font-awesome-icon icon="fa-solid fa-trash" />
               </button>
             </td>
